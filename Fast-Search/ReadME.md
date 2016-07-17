@@ -1,0 +1,1 @@
+Fast-Search: is an Android application to search in many search web engines from it.
