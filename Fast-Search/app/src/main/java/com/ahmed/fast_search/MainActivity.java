@@ -21,9 +21,9 @@ import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
-    private String[] searchList = {"Select","Bing", "DuckDuckGo", "Google", "Wikipedia" , "YouTube"};
-    private int[] images = {R.drawable.down, R.drawable.bing, R.drawable.duckduckgo, R.drawable.google, R.drawable.wiki,
-    R.drawable.youtube};
+    private String[] searchList = {"Select","Google", "Bing", "DuckDuckGo", "YouTube" , "Dailymotion" , "Wikipedia"};
+    private int[] images = {R.drawable.down, R.drawable.google, R.drawable.bing, R.drawable.duckduckgo, R.drawable.youtube,
+    R.drawable.dailymotion, R.drawable.wiki};
     private Button submitBtn,clearBtn;
     private EditText searchText;
     @Override
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 String selectedItem = spinner.getSelectedItem().toString();
                 String url="", line="";
+                //http://www.dailymotion.com/en/relevance/universal/search/
                 try{
                     line = URLEncoder.encode(searchLine, "utf-8");}
                 catch (Exception e){}
@@ -68,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 else if(selectedItem.equals("YouTube")){
-                    url = "http://m.youtube.com/results?q=" + line;
+                    url = "http://youtube.com/results?q=" + line;
+                }
+                else if(selectedItem.equals("Dailymotion")){
+                    url = "http://www.dailymotion.com/relevance/search/" + line;
                 }
                 else if(selectedItem.equals("DuckDuckGo"))
                 {
