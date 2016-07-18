@@ -21,9 +21,10 @@ import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
-    private String[] searchList = {"Select","Google", "Bing", "DuckDuckGo", "YouTube" , "Dailymotion" , "Wikipedia"};
+    private String[] searchList = {"Select", "Google", "Bing", "DuckDuckGo", "YouTube", "Dailymotion",
+            "facebook", "twitter", "Wikipedia"};
     private int[] images = {R.drawable.down, R.drawable.google, R.drawable.bing, R.drawable.duckduckgo, R.drawable.youtube,
-    R.drawable.dailymotion, R.drawable.wiki};
+    R.drawable.dailymotion, R.drawable.facebook, R.drawable.twitter, R.drawable.wiki};
     private Button submitBtn,clearBtn;
     private EditText searchText;
     @Override
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 String selectedItem = spinner.getSelectedItem().toString();
                 String url="", line="";
-                //http://www.dailymotion.com/en/relevance/universal/search/
                 try{
                     line = URLEncoder.encode(searchLine, "utf-8");}
                 catch (Exception e){}
@@ -67,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
                 else if(selectedItem.equals("Select")) {
                     Toast.makeText(getBaseContext(), "Select a search engine", Toast.LENGTH_SHORT).show();
                     return;
+                }
+                else if(selectedItem.equals("facebook")){
+                    url = "https://m.facebook.com/search/?search=people&search_source=search_bar&query=" + line;
+                }
+                else if(selectedItem.equals("twitter")){
+                    url = "https://twitter.com/search?q=" + line;
                 }
                 else if(selectedItem.equals("YouTube")){
                     url = "http://youtube.com/results?q=" + line;
