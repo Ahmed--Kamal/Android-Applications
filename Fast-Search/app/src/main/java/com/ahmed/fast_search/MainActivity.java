@@ -16,6 +16,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.net.URLEncoder;
 
 
@@ -39,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         submitBtn = (Button)findViewById(R.id.submitBtn);
         clearBtn = (Button)findViewById(R.id.clearBtn);
         searchText = (EditText)findViewById(R.id.searchText);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-4846410650053023~5573899394");
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

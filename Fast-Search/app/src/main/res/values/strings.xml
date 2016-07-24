@@ -4,6 +4,9 @@
     <string name="EditTextHint">Type your search text</string>
     <string name="select_Category">Select Category</string>
     <string name="prompt">Select one</string>
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-4846410650053023/1004098999</string>
     <drawable name="white">#ffffff</drawable>
     <drawable name="black">#000000</drawable>
     <drawable name="green">#347C2C</drawable>
